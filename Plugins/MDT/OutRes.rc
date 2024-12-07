@@ -1,0 +1,2 @@
+InstallScriptMS RCDATA "DB\MS\Create.sql"
+InstallScriptPG RCDATA "DB\PG\Create.sql"

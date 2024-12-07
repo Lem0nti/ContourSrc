@@ -1,0 +1,96 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{C398FB89-AF9C-4134-BEDB-40DC5DCB5CB2}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Archive\ArchContour.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Retina\Retina.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Server\Contour.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Player\ContourPlayer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Client\ContourClient.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Plugins\MDT\cpMDT.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ArchContour">
+        <MSBuild Projects="Archive\ArchContour.dproj"/>
+    </Target>
+    <Target Name="ArchContour:Clean">
+        <MSBuild Projects="Archive\ArchContour.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ArchContour:Make">
+        <MSBuild Projects="Archive\ArchContour.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Retina">
+        <MSBuild Projects="Retina\Retina.dproj"/>
+    </Target>
+    <Target Name="Retina:Clean">
+        <MSBuild Projects="Retina\Retina.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Retina:Make">
+        <MSBuild Projects="Retina\Retina.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Contour">
+        <MSBuild Projects="Server\Contour.dproj"/>
+    </Target>
+    <Target Name="Contour:Clean">
+        <MSBuild Projects="Server\Contour.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Contour:Make">
+        <MSBuild Projects="Server\Contour.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ContourPlayer">
+        <MSBuild Projects="Player\ContourPlayer.dproj"/>
+    </Target>
+    <Target Name="ContourPlayer:Clean">
+        <MSBuild Projects="Player\ContourPlayer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ContourPlayer:Make">
+        <MSBuild Projects="Player\ContourPlayer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ContourClient">
+        <MSBuild Projects="Client\ContourClient.dproj"/>
+    </Target>
+    <Target Name="ContourClient:Clean">
+        <MSBuild Projects="Client\ContourClient.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ContourClient:Make">
+        <MSBuild Projects="Client\ContourClient.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="cpMDT">
+        <MSBuild Projects="Plugins\MDT\cpMDT.dproj"/>
+    </Target>
+    <Target Name="cpMDT:Clean">
+        <MSBuild Projects="Plugins\MDT\cpMDT.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cpMDT:Make">
+        <MSBuild Projects="Plugins\MDT\cpMDT.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ArchContour;Retina;Contour;ContourPlayer;ContourClient;cpMDT"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ArchContour:Clean;Retina:Clean;Contour:Clean;ContourPlayer:Clean;ContourClient:Clean;cpMDT:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ArchContour:Make;Retina:Make;Contour:Make;ContourPlayer:Make;ContourClient:Make;cpMDT:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
